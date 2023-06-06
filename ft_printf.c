@@ -6,7 +6,7 @@
 /*   By: dionmart <dionmart@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 12:34:12 by dionmart          #+#    #+#             */
-/*   Updated: 2023/06/06 17:03:49 by dionmart         ###   ########.fr       */
+/*   Updated: 2023/06/06 17:44:14 by dionmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -14,10 +14,12 @@
 
 static void	ft_case(char c, va_list arg, int *count)
 {
-	if (((c == 'i') || (c == 'd')) && (*count >= 0))
-		ft_putnbr(va_arg(arg, int), count, c);
+	if ((c == 'i') && (*count >= 0))
+		ft_putnbr(va_arg(arg, int), count);
+	if ((c == 'd') && (*count >= 0))
+		ft_putdbl(va_arg(arg, long), count);
 	if ((c == 'u') && (*count >= 0))
-		ft_putnbr(va_arg(arg, unsigned int), count, c);
+		ft_putun_nbr(va_arg(arg, unsigned int), count);
 	else if ((c == '%') && (*count >= 0))
 		ft_putchar('%', count);
 	else if ((c == 's') && (*count >= 0))
@@ -58,7 +60,7 @@ int main(void)
 {
 	printf("%s", (char *)NULL);
 	ft_printf("%s", (char *)NULL);
-    printf("Hola %d \n",  -1);
-	ft_printf("Hola %d \n",  -1);
+    printf("%u %d \n", 10, -1);
+	ft_printf("%u %d \n", 10, -1);
 	return (0);
 }

@@ -6,7 +6,7 @@
 #    By: dionmart <dionmart@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 11:18:56 by dionmart          #+#    #+#              #
-#    Updated: 2023/06/06 17:20:40 by dionmart         ###   ########.fr        #
+#    Updated: 2023/06/06 17:51:34 by dionmart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME 	= libftprintf.a 
@@ -16,7 +16,7 @@ DIR_LIB	= includes/libft/
 LIB		= $(DIR_LIB)Libft.a
 
 SRC 	= ft_printf.c ft_putchar.c ft_putstr.c ft_putnbr.c ft_putptr.c \
-		  ft_putbase16.c
+		  ft_putbase16.c ft_putun_nbr.c ft_putdbl.c
 
 OBJS = $(SRC:.c=.o)
 CC = cc
