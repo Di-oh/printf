@@ -15,9 +15,7 @@
 void	ft_putnbr(int num, int *count, char c)
 {
 	long	nbr;
-//	int		nbr;
 
-	printf("%i ", *count);
 	nbr = num;
 	if (nbr < 0)
 	{
