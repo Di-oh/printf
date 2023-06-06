@@ -6,12 +6,11 @@
 #    By: dionmart <dionmart@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 11:18:56 by dionmart          #+#    #+#              #
-#    Updated: 2023/06/06 17:51:34 by dionmart         ###   ########.fr        #
+#    Updated: 2023/06/06 18:06:47 by dionmart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME 	= libftprintf.a 
 HEADER 	= ft_printf.h
-INC		= includes/
 DIR_LIB	= includes/libft/
 LIB		= $(DIR_LIB)Libft.a
 
