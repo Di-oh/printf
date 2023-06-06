@@ -6,7 +6,7 @@
 /*   By: dionmart <dionmart@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 12:34:12 by dionmart          #+#    #+#             */
-/*   Updated: 2023/06/06 13:22:40 by dionmart         ###   ########.fr       */
+/*   Updated: 2023/06/06 16:34:47 by dionmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -14,9 +14,12 @@
 
 static void	ft_case(char c, va_list arg, int *count)
 {
-	printf ("%i \n", *count);
-	if (((c == 'i') || (c == 'd') || (c == 'u')) && (*count >= 0))
+//	printf("count: %i \n", *count);
+//	printf("opcion: %c", c);
+	if (((c == 'i') || (c == 'd')) && (*count >= 0))
 		ft_putnbr(va_arg(arg, int), count, c);
+	if ((c == 'u') && (*count >= 0))
+		ft_putnbr(va_arg(arg, unsigned int), count, c);
 	else if ((c == '%') && (*count >= 0))
 		ft_putchar('%', count);
 	else if ((c == 's') && (*count >= 0))
@@ -29,6 +32,8 @@ static void	ft_case(char c, va_list arg, int *count)
 		ft_putbase16(va_arg(arg, int), count, 'x');
 	else if ((c == 'c') && (*count >= 0))
 		ft_putchar(va_arg(arg, int), count);
+	else if (*count == -1)
+		free(count);
 }
 
 int	ft_printf(const char *format, ...)
@@ -57,7 +62,9 @@ int	ft_printf(const char *format, ...)
 
 int main(void)
 {
-    printf("Hola %d \n",  -1);
-	ft_printf("Hola %d \n",  -1);
+//	printf("%s", (char *)NULL);
+//	ft_printf("%s", (char *)NULL);
+/*    printf("Hola %d \n",  -1);
+	ft_printf("Hola %d \n",  -1);*/
 	return (0);
 }
