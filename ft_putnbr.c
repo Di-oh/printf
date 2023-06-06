@@ -6,15 +6,17 @@
 /*   By: dionmart <dionmart@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 13:32:25 by dionmart          #+#    #+#             */
-/*   Updated: 2023/06/06 10:47:52 by dionmart         ###   ########.fr       */
+/*   Updated: 2023/06/06 13:24:37 by dionmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libftprintf.h"
+#include "ft_printf.h"
+#include <stdio.h>
 
-void 	ft_putnbr(int num, int *count, char c)
+void	ft_putnbr(int num, int *count, char c)
 {
 	long	nbr;
 
+	printf("%i ", *count);
 	nbr = num;
 	if (nbr < 0)
 	{
@@ -32,4 +34,3 @@ void 	ft_putnbr(int num, int *count, char c)
 		ft_putchar(nbr + '0', count);
 	}
 }
-
