@@ -6,10 +6,10 @@
 /*   By: dionmart <dionmart@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 13:32:25 by dionmart          #+#    #+#             */
-/*   Updated: 2023/06/01 20:11:52 by dionmart         ###   ########.fr       */
+/*   Updated: 2023/06/06 10:47:52 by dionmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "printf.h"
+#include "libftprintf.h"
 
 void 	ft_putnbr(int num, int *count, char c)
 {

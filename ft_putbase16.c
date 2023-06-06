@@ -6,10 +6,10 @@
 /*   By: dionmart <dionmart@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 17:30:11 by dionmart          #+#    #+#             */
-/*   Updated: 2023/06/01 19:45:19 by dionmart         ###   ########.fr       */
+/*   Updated: 2023/06/06 11:25:33 by dionmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "printf.h"
+#include "libftprintf.h"
 
 void ft_putbase16(int nbr, int *count, char c)
 {
@@ -18,19 +18,19 @@ void ft_putbase16(int nbr, int *count, char c)
 
 	if (nbr < 0)
 	{
-		ft_putchar('-', &count);
+		ft_putchar('-', count);
 		nbr = -nbr;
 	}
 	else if (nbr > 16)
 	{
-		ft_putbase16(nbr % 16, &count, c);
-		ft_putbase16(nbr / 16, &count, c);
+		ft_putbase16(nbr % 16, count, c);
+		ft_putbase16(nbr / 16, count, c);
 	} 
 	else
 	{
 		if (c == 'X') 
-			ft_putchar(base16[nbr], &count);
+			ft_putchar(base16[nbr], count);
 		else 
-			ft_putchar(base16_lw[nbr], &count);
+			ft_putchar(base16_lw[nbr], count);
 	}
 }

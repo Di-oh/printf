@@ -6,14 +6,16 @@
 #    By: dionmart <dionmart@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 11:18:56 by dionmart          #+#    #+#              #
-#    Updated: 2023/06/01 16:23:52 by dionmart         ###   ########.fr        #
+#    Updated: 2023/06/06 10:49:18 by dionmart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-NAME 	= libftprintf.a
+NAME 	= libftprintf.a 
 HEADER 	= libftprintf.h
 
-SRC 	= ft_printf.c, ft_putchar.c, ft_putstr.c, ft_putnbr.c 
+SRC 	= ft_printf.c ft_putchar.c ft_putstr.c ft_putnbr.c ft_putptr.c \
+		  ft_putbase16.c
 
+OBJS = $(SRC:.c=.o)
 CC = cc
 CFLAGS = -Wall -Wextra -Werror 
 
