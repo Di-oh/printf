@@ -16,9 +16,9 @@ static void	ft_case(char c, va_list arg, int *count)
 {
 	if ((c == 'i') && (*count >= 0))
 		ft_putnbr(va_arg(arg, int), count);
-	if ((c == 'd') && (*count >= 0))
-		ft_putdbl(va_arg(arg, long), count);
-	if ((c == 'u') && (*count >= 0))
+	else if ((c == 'd') && (*count >= 0))
+		ft_putdbl(va_arg(arg, int), count);
+	else if ((c == 'u') && (*count >= 0))
 		ft_putun_nbr(va_arg(arg, unsigned int), count);
 	else if ((c == '%') && (*count >= 0))
 		ft_putchar('%', count);
@@ -55,12 +55,21 @@ int	ft_printf(const char *format, ...)
 	va_end(my_lis);
 	return (count);
 }
-
+/*
 int main(void)
 {
-	printf("%s", (char *)NULL);
-	ft_printf("%s", (char *)NULL);
-    printf("%u %d \n", 10, -1);
+	int n = 339;
+	char *cosa;
+	cosa = "eo";
+	//	printf("%s", (char *)NULL);
+	ft_printf("%s\n", (char *)NULL);
+    	printf("%u %d \n", 10, -1);
 	ft_printf("%u %d \n", 10, -1);
+	printf("%x %X\n", n, n);
+	ft_printf("%x %X\n", n, n);
+	printf("%p\n", cosa);
+	ft_printf("%p\n", cosa);
+	printf("%c\n", 'n');
+	ft_printf("%c\n", 'n');
 	return (0);
-}
+}*/

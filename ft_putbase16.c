@@ -25,8 +25,8 @@ void	ft_putbase16(int nbr, int *count, char c)
 	}
 	else if (nbr > 16)
 	{
-		ft_putbase16(nbr % 16, count, c);
 		ft_putbase16(nbr / 16, count, c);
+		ft_putbase16(nbr % 16, count, c);
 	}
 	else
 	{

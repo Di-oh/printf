@@ -21,7 +21,7 @@ void	ft_putchar(char c, int *count);
 void	ft_putstr(char *c, int *count);
 void	ft_putnbr(int nbr, int *count);
 void	ft_putun_nbr(unsigned int nbr, int *count);
-void	ft_putdbl(long nbr, int *count);
+void	ft_putdbl(int nbr, int *count);
 void	ft_putptr(unsigned long long ptr, int *count);
 void	ft_putbase16(int nbr, int *count, char c);
 #endif

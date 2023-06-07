@@ -21,8 +21,8 @@ void	ft_putnbr(int nbr, int *count)
 	}
 	if (nbr > 9)
 	{
-		ft_putnbr((nbr % 10), count);
 		ft_putnbr((nbr / 10), count);
+		ft_putnbr((nbr % 10), count);
 	}
 	else
 		ft_putchar(nbr + '0', count);

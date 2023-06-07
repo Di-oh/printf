@@ -11,8 +11,6 @@
 # **************************************************************************** #
 NAME 	= libftprintf.a 
 HEADER 	= ft_printf.h
-DIR_LIB	= includes/libft/
-LIB		= $(DIR_LIB)Libft.a
 
 SRC 	= ft_printf.c ft_putchar.c ft_putstr.c ft_putnbr.c ft_putptr.c \
 		  ft_putbase16.c ft_putun_nbr.c ft_putdbl.c
@@ -30,19 +28,13 @@ CFLAGS = -Wall -Wextra -Werror
 # Mis metodos:
 all:$(NAME)
 
-$(NAME): $(OBJS) $(LIB)
-	@cp	$(LIB) $(NAME)
+$(NAME): $(OBJS)
 	@ar rcs $(NAME) $(OBJS) 
 
-$(LIB):
-	@make -C $(DIR_LIB)
-
 clean:
-	@make fclean -C $(DIR_LIB)
 	@rm -rf $(OBJS) 
 
 fclean: clean
-	@make fclean -C $(DIR_LIB)
 	@rm -f $(NAME)
 
 re: fclean all

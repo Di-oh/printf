@@ -12,7 +12,7 @@
 #include "ft_printf.h"
 #include <stdio.h>
 
-void	ft_putdbl(long nbr, int *count)
+void	ft_putdbl(int nbr, int *count)
 {
 	if (nbr < 0)
 	{
@@ -21,8 +21,8 @@ void	ft_putdbl(long nbr, int *count)
 	}
 	if (nbr > 9)
 	{
-		ft_putdbl((nbr % 10), count);
 		ft_putdbl((nbr / 10), count);
+		ft_putdbl((nbr % 10), count);
 	}
 	else
 		ft_putchar(nbr + '0', count);
