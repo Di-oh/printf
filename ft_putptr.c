@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "ft_printf.h"
 
-void	ft_putptr_r(unsigned long long ptr, int *count)
+static void	ft_putptr_r(unsigned long long ptr, int *count)
 {
 	char    *base16;
 
