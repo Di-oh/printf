@@ -6,13 +6,13 @@
 /*   By: dionmart <dionmart@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 17:34:48 by dionmart          #+#    #+#             */
-/*   Updated: 2023/06/06 17:40:41 by dionmart         ###   ########.fr       */
+/*   Updated: 2023/06/09 18:35:36 by dionmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
 #include <stdio.h>
 
-void	ft_putun_nbr(unsigned int nbr , int *count)
+void	ft_putun_nbr(unsigned int nbr, int *count)
 {
 	if (nbr > 9)
 	{

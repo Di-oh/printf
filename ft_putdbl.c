@@ -6,7 +6,7 @@
 /*   By: dionmart <dionmart@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 17:33:00 by dionmart          #+#    #+#             */
-/*   Updated: 2023/06/06 17:43:16 by dionmart         ###   ########.fr       */
+/*   Updated: 2023/06/09 19:59:17 by dionmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -14,16 +14,27 @@
 
 void	ft_putdbl(int nbr, int *count)
 {
-	if (nbr < 0)
+	if (nbr == -2147483648)
 	{
-		ft_putchar('-', count);
-		nbr = -nbr;
-	}
-	if (nbr > 9)
-	{
-		ft_putdbl((nbr / 10), count);
-		ft_putdbl((nbr % 10), count);
+		if (*count != -1)
+			ft_putstr("-2147483648", count);
 	}
 	else
-		ft_putchar(nbr + '0', count);
+	{
+		if (nbr < 0 && *count != -1)
+		{
+			ft_putchar('-', count);
+			nbr = -nbr;
+		}
+		if (nbr > 9)
+		{
+			if (*count != -1)
+				ft_putdbl((nbr / 10), count);
+			if (*count != -1)
+				ft_putdbl((nbr % 10), count);
+		}
+		else
+			if (*count != -1)
+				ft_putchar(nbr + '0', count);
+	}
 }

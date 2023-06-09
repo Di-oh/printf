@@ -6,7 +6,7 @@
 /*   By: dionmart <dionmart@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 13:32:25 by dionmart          #+#    #+#             */
-/*   Updated: 2023/06/06 17:38:27 by dionmart         ###   ########.fr       */
+/*   Updated: 2023/06/09 18:44:44 by dionmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -15,8 +15,8 @@
 void	ft_putnbr(int nbr, int *count)
 {
 	if (nbr == -2147483648)
-                ft_putstr("-2147483648", count);
-	else 
+		ft_putstr("-2147483648", count);
+	else
 	{
 		if (nbr < 0)
 		{	

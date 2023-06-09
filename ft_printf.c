@@ -6,7 +6,7 @@
 /*   By: dionmart <dionmart@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 12:34:12 by dionmart          #+#    #+#             */
-/*   Updated: 2023/06/06 17:44:14 by dionmart         ###   ########.fr       */
+/*   Updated: 2023/06/09 19:39:54 by dionmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -27,9 +27,9 @@ static void	ft_case(char c, va_list arg, int *count)
 	else if ((c == 'p') && (*count >= 0))
 		ft_putptr(va_arg(arg, unsigned long long), count);
 	else if ((c == 'X') && (*count >= 0))
-		ft_putbase16(va_arg(arg, int), count, 'X');
+		ft_putbase16(va_arg(arg, unsigned int), count, 'X');
 	else if ((c == 'x') && (*count >= 0))
-		ft_putbase16(va_arg(arg, int), count, 'x');
+		ft_putbase16(va_arg(arg, unsigned int), count, 'x');
 	else if ((c == 'c') && (*count >= 0))
 		ft_putchar(va_arg(arg, int), count);
 }
@@ -40,11 +40,10 @@ int	ft_printf(const char *format, ...)
 	int		i;
 	int		count;
 
-
 	count = 0;
 	i = 0;
 	va_start(my_lis, format);
-	while (format[i] != '\0')
+	while (format[i] != '\0' && count != -1)
 	{	
 		if (format[i] == '%')
 			ft_case(format[++i], my_lis, &count);
