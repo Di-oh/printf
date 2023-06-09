@@ -6,7 +6,7 @@
 /*   By: dionmart <dionmart@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 19:13:09 by dionmart          #+#    #+#             */
-/*   Updated: 2023/06/09 19:55:35 by dionmart         ###   ########.fr       */
+/*   Updated: 2023/06/09 20:09:19 by dionmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -27,7 +27,6 @@ static void	ft_putptr_r(unsigned long long ptr, int *count)
 	{
 		if (*count != -1)
 			ft_putchar(base16[ptr], count);
-
 	}
 }
 

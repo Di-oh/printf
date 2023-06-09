@@ -6,7 +6,7 @@
 #    By: dionmart <dionmart@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 11:18:56 by dionmart          #+#    #+#              #
-#    Updated: 2023/06/06 18:06:47 by dionmart         ###   ########.fr        #
+#    Updated: 2023/06/09 20:38:22 by dionmart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME 	= libftprintf.a 
