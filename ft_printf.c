@@ -6,7 +6,7 @@
 /*   By: dionmart <dionmart@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 12:34:12 by dionmart          #+#    #+#             */
-/*   Updated: 2023/06/09 19:39:54 by dionmart         ###   ########.fr       */
+/*   Updated: 2023/06/09 22:01:43 by dionmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -17,7 +17,7 @@ static void	ft_case(char c, va_list arg, int *count)
 	if ((c == 'i') && (*count >= 0))
 		ft_putnbr(va_arg(arg, int), count);
 	else if ((c == 'd') && (*count >= 0))
-		ft_putdbl(va_arg(arg, int), count);
+		ft_putnbr(va_arg(arg, int), count);
 	else if ((c == 'u') && (*count >= 0))
 		ft_putun_nbr(va_arg(arg, unsigned int), count);
 	else if ((c == '%') && (*count >= 0))

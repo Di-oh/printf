@@ -1,40 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putdbl.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dionmart <dionmart@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/06 17:33:00 by dionmart          #+#    #+#             */
-/*   Updated: 2023/06/09 21:17:11 by dionmart         ###   ########.fr       */
+/*   Created: 2023/05/26 12:27:02 by dionmart          #+#    #+#             */
+/*   Updated: 2023/05/26 12:29:29 by dionmart         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "ft_printf.h"
-#include <stdio.h>
+#include "libft.h"
 
-void	ft_putdbl(int nbr, int *count)
+void	ft_putnbr_fd(int n, int fd)
 {
-	if (nbr == -2147483648)
-	{
-		if (*count != -1)
-			ft_putstr("-2147483648", count);
-	}
+	if (n == -2147483648)
+		ft_putstr_fd("-2147483648", fd);
 	else
 	{
-		if (nbr < 0 && *count != -1)
+		if (n < 0)
 		{
-			ft_putchar('-', count);
-			nbr = -nbr;
+			write(fd, "-", 1);
+			n = -n;
 		}
-		if (nbr > 9)
+		if (n > 9)
 		{
-			if (*count != -1)
-				ft_putdbl((nbr / 10), count);
-			if (*count != -1)
-				ft_putdbl((nbr % 10), count);
+			ft_putnbr_fd(n / 10, fd);
+			ft_putnbr_fd(n % 10, fd);
 		}
 		else
-			if (*count != -1)
-				ft_putchar(nbr + '0', count);
-	}
+			ft_putchar_fd(n + '0', fd);
+	}		
 }
+/*
+int	main(void)
+{
+	ft_putnbr_fd(-45454, 1);
+	return (0);
+}*/
