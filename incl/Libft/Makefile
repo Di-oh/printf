@@ -6,7 +6,7 @@
 #    By: dionmart <dionmart@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/03 11:18:56 by dionmart          #+#    #+#              #
-#    Updated: 2023/06/09 22:26:59 by dionmart         ###   ########.fr        #
+#    Updated: 2023/06/10 13:19:28 by dionmart         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME 	= libft.a
@@ -32,24 +32,25 @@ CFLAGS = -Wall -Wextra -Werror
 # Metodo Implicito:
 #regla patron $< substituir los nombre del output, $@ los del input
 %.o: %.c $(HEADER)
-	@$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 
 # Mis metodos:
 all:$(NAME)
 
 $(NAME): $(OBJS)
-	@ar rcs $(NAME) $(OBJS) 
+	ar rcs $(NAME) $(OBJS) 
 
 #'$^' es una lista de todos los requisitos previos de la regla
 bonus: $(NAME) $(BONUS) $(OBJ_B)
-	@ar rcs $(NAME) $^
+	ar rcs $(NAME) $^
 
 clean:
-	@rm -rf $(OBJS) $(OBJ_B)
+	rm -rf $(OBJS) $(OBJ_B)
 
-fclean: clean
-	@rm -f $(NAME)
+fclean: 
+	rm -f $(NAME)
+	rm -rf $(OBJS) $(OBJ_B)
 
 re: fclean all
 
