@@ -26,6 +26,11 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 DFLAGS = -MT $@ -MMD
 
+# Metodo Implicito:
+#regla patron $< substituir los nombre del output, $@ los del input
+%.o: %.c Makefile
+	$(CC) $(CFLAGS) $(DFLAGS) -c $< -o $@
+
 # Mis metodos:
 -include $(DEPS)
 
@@ -42,11 +47,6 @@ fclean:
 	rm -rf $(OBJS) $(DEPS)
 
 re: fclean all
-
-# Metodo Implicito:
-#regla patron $< substituir los nombre del output, $@ los del input
-%.o: %.c Makefile
-	$(CC) $(CFLAGS) $(DFLAGS) -c $< -o $@
 
 # Regla phony
 .PHONY: re fclean clean all
