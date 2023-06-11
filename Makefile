@@ -24,18 +24,16 @@ DFLAGS = -MT $@ -MMD
 
 # Mis metodos:
 -include $(DEPS)
-all: make_lib $(NAME)
+all: $(NAME)
  
-$(NAME): $(OBJS) 
-	cp incl/libft/libft.a $(NAME)
+$(NAME): $(OBJS)
+	$(MAKE) -C $(DIR_LIBFT)	
+	cp incl/Libft/libft.a $(NAME)
 	ar rcs $(NAME) $(OBJS)
-
-make_lib:
-	$(MAKE) -C $(DIR_LIBFT)
 
 clean:
 	rm -rf $(OBJS) 
-	rm -rf $(DEPS)
+	rm -f $(DEPS)
 	$(MAKE) clean -C $(DIR_LIBFT)
 
 fclean: 

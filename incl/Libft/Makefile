@@ -19,45 +19,34 @@ SRC 	= ft_strlen.c ft_isalpha.c ft_isalnum.c ft_isdigit.c ft_isascii.c \
 		  ft_atoi.c ft_strdup.c ft_calloc.c ft_substr.c ft_strjoin.c \
 		  ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c \
 		  ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
-
-BONUS	= ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
-		  ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c \
-		  ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c
 DEPS = $(addsuffix .d, $(basename $(SRC)))
 
 OBJS = $(SRC:.c=.o)
-OBJ_B = $(BONUS:.c=.o)
 CC = cc
-CFLAGS = -Wall -Wextra -Werror 
+CFLAGS = -Wall -Wextra -Werror
 DFLAGS = -MT $@ -MMD
-
-# Metodo Implicito:
-#regla patron $< substituir los nombre del output, $@ los del input
-%.o: %.c $(HEADER)
-	$(CC) $(CFLAGS) $(DFLAGS) -c $< -o $@
-
 
 # Mis metodos:
 -include $(DEPS)
 
-all:$(NAME)
+all: $(NAME)
 
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS) 
 
-#'$^' es una lista de todos los requisitos previos de la regla
-bonus: $(NAME) $(BONUS) $(OBJ_B)
-	ar rcs $(NAME) $^
-
 clean:
-	rm -rf $(OBJS) $(OBJ_B) $(DEPS)
+	rm -rf $(OBJS) $(DEPS)
 
 fclean: 
 	rm -f $(NAME)
-	rm -rf $(OBJS) $(OBJ_B) $(DEPS)
+	rm -rf $(OBJS) $(DEPS)
 
 re: fclean all
 
+# Metodo Implicito:
+#regla patron $< substituir los nombre del output, $@ los del input
+%.o: %.c Makefile
+	$(CC) $(CFLAGS) $(DFLAGS) -c $< -o $@
 
 # Regla phony
 .PHONY: re fclean clean all
