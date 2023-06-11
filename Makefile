@@ -11,41 +11,29 @@
 # **************************************************************************** #
 NAME 	= libftprintf.a 
 HEADER 	= ft_printf.h
-INCL = incl/
-DIR_LIBFT = incl/Libft/
-LIB_FT = $(DIR_LIBFT)libft.a
 SRC 	= ft_printf.c ft_putchar.c ft_putstr.c ft_putnbr.c ft_putptr.c \
 		  ft_putbase16.c ft_putun_nbr.c
-DEPS = $(addsuffix .d, $(basename $(SRC))) 
 OBJS = $(SRC:.c=.o)
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -I $(INCL) 
-DFLAGS = -MT $@ -MMD
+CFLAGS = -Wall -Wextra -Werror  
 
 # Metodo Implicito:
 #regla patron $< substituir los nombre del output, $@ los del input
 %.o: %.c Makefile
-	$(CC) $(CFLAGS) $(DFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
 # Mis metodos:
--include $(DEPS)
 all: $(NAME)
  
 $(NAME): $(OBJS)
-	$(MAKE) -C $(DIR_LIBFT)	
-	cp incl/Libft/libft.a $(NAME)
 	ar rcs $(NAME) $(OBJS)
 
 clean:
 	rm -rf $(OBJS) 
-	rm -f $(DEPS)
-	$(MAKE) clean -C $(DIR_LIBFT)
 
 fclean: 
 	rm -rf $(OBJS) 
 	rm -f $(NAME)
-	rm -f $(DEPS)
-	$(MAKE) fclean -C $(DIR_LIBFT)
 
 re: fclean all
 
